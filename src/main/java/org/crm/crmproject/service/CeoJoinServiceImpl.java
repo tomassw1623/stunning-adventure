@@ -19,13 +19,14 @@ public class CeoJoinServiceImpl implements CeoJoinService{
     @Override
     public void ceoJoin(CeoDTO ceoDTO) throws CusJoinService.MidExistException {
 
-        Long gm = ceoDTO.getGm();
-
-        boolean ceoExist = ceoMemberRepository.existsById(gm);
-
-        if(ceoExist) {
-            throw new CusJoinService.MidExistException();
-        }
+        //  id값이 null일 경우 오류 발생.. 이건 추후에 null이 아닐 경우에 처리하는 로직을 짜겠습니다.
+//        Long gm = ceoDTO.getGm();
+//
+//        boolean ceoExist = ceoMemberRepository.existsById(gm);
+//
+//        if(ceoExist) {
+//            throw new CusJoinService.MidExistException();
+//        }
 
         CeoMember ceoMember = modelMapper.map(ceoDTO, CeoMember.class);
 

@@ -36,7 +36,8 @@ public class CeoJoinController {
         }
 
         redirectAttributes.addAttribute("result", "success");
-        return "redirect:/ceo/login";
+        return "redirect:/board/login";
+        // 이부분도 CusJoinController와 마찬가지로 고객, 사업자 템플릿 폴더에 login 페이지가 없어서 /board 로 경로 변경했습니다.
     }
 
     @GetMapping("/login")

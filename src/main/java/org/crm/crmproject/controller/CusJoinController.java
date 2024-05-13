@@ -18,26 +18,26 @@ public class CusJoinController {
     private final CusJoinServiceImpl cusJoinServiceImpl;
 
     //  고객 회원가입
-   @GetMapping("/join")
+    @GetMapping("/join")
     public void cusJoinGet(){log.info("----- join get -----");}
-//
-//    @PostMapping("/login")
-//    public String cusJoinPost(CustomerDTO customerDTO, RedirectAttributes redirectAttributes){
-//
-//       log.info("----- join post -----");
-//       log.info(customerDTO);
-//
-//
-//       try {
-//           cusJoinServiceImpl.cusJoin(customerDTO);
-//       }catch (CusJoinService.MidExistException e){
-//           redirectAttributes.addFlashAttribute("error", "user");
-//           return "redirect:/customer/join";
-//       }
-//
-//       redirectAttributes.addAttribute("result", "success");
-//       return "redirect:/customer/login";
-//    }
+
+    @PostMapping("/login")
+    public String cusJoinPost(CustomerDTO customerDTO, RedirectAttributes redirectAttributes){
+
+       log.info("----- join post -----");
+       log.info(customerDTO);
+
+
+       try {
+           cusJoinServiceImpl.cusJoin(customerDTO);
+       }catch (CusJoinService.MidExistException e){
+           redirectAttributes.addFlashAttribute("error", "user");
+           return "redirect:/customer/join";
+       }
+
+       redirectAttributes.addAttribute("result", "success");
+       return "redirect:/board/login";      //리다이렉트 경로 customer에서 board로 임시 변경했습니다.
+    }
 
 
 
