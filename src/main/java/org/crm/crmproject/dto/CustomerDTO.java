@@ -22,5 +22,4 @@ public class CustomerDTO {
     private LocalDate cusBirthday;
 
     private String cusNick;
-
 }

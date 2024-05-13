@@ -2,10 +2,12 @@ package org.crm.crmproject.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.crm.crmproject.domain.Member;
+import org.crm.crmproject.domain.CeoMember;
+import org.crm.crmproject.domain.CustomerMember;
 import org.crm.crmproject.dto.CeoDTO;
 import org.crm.crmproject.dto.CustomerDTO;
-import org.crm.crmproject.repository.JoinRepository;
+import org.crm.crmproject.repository.CeoMemberRepository;
+import org.crm.crmproject.repository.CustomerMemberRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class JoinServiceImpl implements JoinService {
 
-    private final JoinRepository joinRepository;
+    private final CeoMemberRepository ceoMemberRepository;
+    private final CustomerMemberRepository customerMemberRepository;
 
     private final ModelMapper modelMapper;
 
@@ -23,16 +26,16 @@ public class JoinServiceImpl implements JoinService {
 
         String cid = customerDTO.getCusId();
 
-        boolean cusExist = joinRepository.existsById(cid);
+        boolean cusExist = customerMemberRepository.existsById(cid);
 
 
         if(cusExist) {
             throw new MidExistException();
         }
 
-        Member member = modelMapper.map(customerDTO, Member.class);
+        CustomerMember customerMember = modelMapper.map(customerDTO, CustomerMember.class);
 
-        joinRepository.save(member);
+        customerMemberRepository.save(customerMember);
     }
 
     @Override
@@ -40,14 +43,14 @@ public class JoinServiceImpl implements JoinService {
 
         String ceoId = ceoDTO.getCeoId();
 
-        boolean ceoExist = joinRepository.existsById(ceoId);
+        boolean ceoExist = ceoMemberRepository.existsById(ceoId);
 
         if(ceoExist) {
             throw new MidExistException();
         }
 
-        Member member = modelMapper.map(ceoDTO, Member.class);
+        CeoMember ceoMember = modelMapper.map(ceoDTO, CeoMember.class);
 
-        joinRepository.save(member);
+        ceoMemberRepository.save(ceoMember);
     }
 }

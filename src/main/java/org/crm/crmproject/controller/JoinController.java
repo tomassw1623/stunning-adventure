@@ -21,7 +21,7 @@ public class JoinController {
    @GetMapping("/customer/join")
     public void cusJoinGet(){log.info("----- join get -----");}
 
-    @PostMapping("/customer/join")
+    @PostMapping("/customer/login")
     public String cusJoinPost(CustomerDTO customerDTO, RedirectAttributes redirectAttributes){
 
        log.info("----- join post -----");
@@ -60,5 +60,9 @@ public class JoinController {
         return "redirect:/customer/login";
 
     }
+
+
+
+
 
 }

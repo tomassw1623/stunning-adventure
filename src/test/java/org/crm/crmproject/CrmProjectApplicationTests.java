@@ -9,5 +9,4 @@ class CrmProjectApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
