@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보 수정</title>
+</head>
+<body>
+<h2>회원정보 수정</h2>
+<form th:action="@{/customer/reLogin}" method="post">
+    <label for="name">이름:</label><br>
+    <input type="text" id="name" name="cusName" placeholder="이름"><br>
+
+    <label for="username">아이디:</label><br>
+    <input type="text" id="username" name="cusId" readonly><br>
+
+    <label for="password">비밀번호:</label><br>
+    <input type="password" id="password" name="cusPw"><br>
+
+    <label for="gender">성별:</label><br>
+    <select id="gender" name="cusGender">
+        <option value="male">남성</option>
+        <option value="female">여성</option>
+    </select><br>
+
+    <label for="email">이메일:</label><br>
+    <input type="email" id="email" name="cusEmail" placeholder="이메일"><br>
+
+    <label for="phone">핸드폰 번호:</label><br>
+    <input type="tel" id="phone" name="cusPhone" placeholder="휴대폰 번호"><br>
+
+    <label for="birthdate">생년월일:</label><br>
+    <input type="date" id="birthdate" name="cusBirth"><br>
+
+    <label for="nickname">닉네임:</label><br>
+    <input type="text" id="nickname" name="cusNick" placeholder="닉네임"><br>
+
+    <input type="submit" value="수정하기">
+
+</form>
+</body>
+</html>
