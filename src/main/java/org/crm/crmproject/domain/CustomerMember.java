@@ -11,14 +11,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CustomerMember {
+@Table(name = "customer")
+public class CustomerMember  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user;
 
-    @Column(nullable = false, unique = true)
-    private String cusId;
+     private String cusId;
 
     private String cusPw;
 
@@ -47,4 +47,7 @@ public class CustomerMember {
         this.cusBirthday = cusBirthday;
         this.cusNick = cusNick;
     }
+
+
+    //이
 }

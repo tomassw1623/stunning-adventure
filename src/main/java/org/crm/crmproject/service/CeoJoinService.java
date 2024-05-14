@@ -9,6 +9,8 @@ public interface CeoJoinService {
         public MidExistException() {}
         public MidExistException(String message) {super(message);}
     }
-    void ceoJoin(CeoDTO ceoDTO) throws CusJoinService.MidExistException;
+    //CeojoinService에 customerjoinservce가 있었음
+    void ceoJoin(CeoDTO ceoDTO) throws CeoJoinService.MidExistException;
+
 
 }

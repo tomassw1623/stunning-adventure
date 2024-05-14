@@ -18,24 +18,31 @@ public class CusJoinServiceImpl implements CusJoinService {
 
     private final ModelMapper modelMapper;
 
+//    @Override
+//    public void cusJoin(CustomerDTO customerDTO) throws MidExistException {
+//
+//
+//        CustomerMember customerMember = modelMapper.map(customerDTO, CustomerMember.class);
+//
+//        customerMemberRepository.save(customerMember);
+//    }
+
     @Override
     public void cusJoin(CustomerDTO customerDTO) throws MidExistException {
+        CustomerMember customerMember = customerDTO.toEntity();
+        customerMemberRepository.save(customerMember);
+    }
+}
 
-        //  이 부분도 CustomerServiceImpl과 마찬가지로 null일 경우에 오류 생겨서
-        //  추후에 null이 아닌경우 로직을 짜도록 하겠습니다.
-//        Long user = customerDTO.getUser();
+    //  이 부분도 CustomerServiceImpl과 마찬가지로 null일 경우에 오류 생겨서
+    //  추후에 null이 아닌경우 로직을 짜도록 하겠습니다.
+    // Long user = customerDTO.getUser();
 
-//        boolean cusExist = customerMemberRepository.existsById(user);
-//
-//
+    //boolean cusExist = customerMemberRepository.existsById(user);
+
+
 //        if(cusExist) {
 //            throw new MidExistException();
 //        }
 
-        CustomerMember customerMember = modelMapper.map(customerDTO, CustomerMember.class);
 
-        customerMemberRepository.save(customerMember);
-    }
-
-
-}
