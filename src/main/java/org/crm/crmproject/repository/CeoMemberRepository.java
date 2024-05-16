@@ -10,6 +10,4 @@ public interface CeoMemberRepository extends JpaRepository<CeoMember, Long> {
     Optional<CeoMember> findByCeoId(String ceoId);
 
 
-
-
 }
